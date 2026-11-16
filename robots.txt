@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://muidh-alhamamah.github.io/sitemap.xml
