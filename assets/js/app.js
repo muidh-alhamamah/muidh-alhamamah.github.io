@@ -126,7 +126,7 @@
     $("#projects-grid").innerHTML = PROJECTS.map(function (p) {
       var links = (p.link ? '<a href="' + esc(p.link) + '" target="_blank" rel="noopener">' + u.viewProject + ic("ext", "sm") + "</a>" : "") +
         (p.repo ? '<a href="' + esc(p.repo) + '" target="_blank" rel="noopener">' + u.viewRepo + ic("ext", "sm") + "</a>" : "");
-      return '<article class="card project rv glow' + (p.shot ? ' has-shot' : '') + '"><div class="viz">' + (p.shot ? shot(p, u) : (DIAG[p.diagram] || DIAG.lan)) + '</div><div class="pbody"><p class="kind">' + t(p.kind) + "</p><h3>" + t(p.title) + "</h3><ul>" +
+      return '<article class="card project rv glow' + (p.shot ? ' has-shot' : '') + '"><div class="viz">' + (p.shot ? '<div class="arch">' + (DIAG[p.diagram] || DIAG.lan) + '<span class="shot-cap">' + u.arch + '</span></div>' + shot(p, u) : (DIAG[p.diagram] || DIAG.lan)) + '</div><div class="pbody"><p class="kind">' + t(p.kind) + "</p><h3>" + t(p.title) + "</h3><ul>" +
         p.points[lang].map(function (x) { return "<li>" + x + "</li>"; }).join("") + '</ul><div class="tags">' +
         p.tags.map(function (g) { return "<span>" + g + "</span>"; }).join("") + "</div>" + (p.files && p.files.length ? '<div class="pfiles">' + p.files.map(function (f) { return '<a class="pfile" href="' + esc(f.href) + '"' + (/\.pdf$/i.test(f.href) ? ' target="_blank" rel="noopener"' : ' download') + '>' + ic("file") + t(f.name) + ic("ext", "sm") + "</a>"; }).join("") + "</div>" : "") + (links ? '<div class="plinks">' + links + "</div>" : "") + "</div></article>";
     }).join("");
