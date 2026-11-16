@@ -7,6 +7,7 @@
 const SITE = {
   url: "https://muidh-alhamamah.github.io/",
   email: "fahi.058153@gmail.com",
+  photo: "assets/img/image.jpg", // الصورة الشخصية (اتركها "" لإظهار الحرف الأول)
   phone: "+966 581 534 742", // اتركه "" لإخفائه
   links: {
     linkedin: "https://www.linkedin.com/in/muidh-alhamamah",
