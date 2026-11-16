@@ -31,7 +31,7 @@ const PROFILE = {
     ar: "هندسة الشبكات · البنية التحتية الرقمية · أمن الشبكات · الدعم الفني",
   },
   location: { en: "Saudi Arabia", ar: "المملكة العربية السعودية" },
-  status: { en: "Open to opportunities in Riyadh", ar: "متاح لفرص العمل في الرياض" },
+  status: { en: "Open to work", ar: "متاح للعمل" },
   summary: {
     en: "Network, infrastructure and cybersecurity engineer with hands-on experience managing local networks, analyzing system performance and resolving technical issues. CCNA-certified and licensed by the Saudi Council of Engineers.",
     ar: "مهندس شبكات وبنية تحتية وأمن سيبراني يمتلك خبرة عملية في إدارة الشبكات المحلية وتحليل أداء الأنظمة ومعالجة الأعطال التقنية. حاصل على شهادة CCNA ورخصة الهيئة السعودية للمهندسين.",
@@ -252,7 +252,7 @@ const EDUCATION = [
 const UI = {
   en: {
     docTitle: "Muidh Salem Al Hamamah — Network Engineer | Infrastructure | Cybersecurity",
-    docDesc: "Portfolio of Muidh Salem Al Hamamah, a CCNA-certified network engineer licensed by the Saudi Council of Engineers, specializing in network infrastructure, network security and IT support. Open to opportunities in Riyadh.",
+    docDesc: "Portfolio of Muidh Salem Al Hamamah, a CCNA-certified network engineer licensed by the Saudi Council of Engineers, specializing in network infrastructure, network security and IT support. Open to work.",
     nav: { about: "About", skills: "Skills", experience: "Experience", projects: "Projects", certs: "Certifications", education: "Education", contact: "Contact" },
     hello: "Hello, I'm",
     iam: "I work as",
@@ -265,7 +265,7 @@ const UI = {
     certsT: "Certifications & licenses", verify: "Verify",
     educationT: "Education",
     contactT: "Let's build reliable networks together",
-    contactP: "Open to Network Engineer, Infrastructure, Cybersecurity and IT Support roles in Riyadh. Reach out directly — I respond quickly.",
+    contactP: "Open to Network Engineer, Infrastructure, Cybersecurity and IT Support roles. Reach out directly — I respond quickly.",
     email: "Email", phone: "Phone", linkedin: "LinkedIn", github: "GitHub",
     rights: "All rights reserved.", built: "Designed & built for GitHub Pages",
     langBtn: "ع", langLabel: "التبديل إلى العربية", theme: "Toggle theme", menu: "Menu", top: "Back to top",
@@ -273,7 +273,7 @@ const UI = {
   },
   ar: {
     docTitle: "معيض سالم ال حمامه — مهندس شبكات | بنية تحتية | أمن سيبراني",
-    docDesc: "الملف المهني لمعيض سالم ال حمامه، مهندس شبكات حاصل على CCNA ومرخّص من الهيئة السعودية للمهندسين، متخصص في البنية التحتية للشبكات وأمن الشبكات والدعم الفني. متاح لفرص العمل في الرياض.",
+    docDesc: "الملف المهني لمعيض سالم ال حمامه، مهندس شبكات حاصل على CCNA ومرخّص من الهيئة السعودية للمهندسين، متخصص في البنية التحتية للشبكات وأمن الشبكات والدعم الفني. متاح للعمل.",
     nav: { about: "نبذة", skills: "المهارات", experience: "الخبرة", projects: "المشاريع", certs: "الشهادات", education: "التعليم", contact: "التواصل" },
     hello: "مرحبًا، أنا",
     iam: "أعمل في مجال",
@@ -286,7 +286,7 @@ const UI = {
     certsT: "الشهادات والتراخيص", verify: "تحقق",
     educationT: "التعليم",
     contactT: "لنبنِ معًا شبكات موثوقة",
-    contactP: "متاح لوظائف مهندس شبكات والبنية التحتية والأمن السيبراني والدعم الفني في الرياض. تواصل معي مباشرة وسأرد بسرعة.",
+    contactP: "متاح لوظائف مهندس شبكات والبنية التحتية والأمن السيبراني والدعم الفني. تواصل معي مباشرة وسأرد بسرعة.",
     email: "البريد الإلكتروني", phone: "الجوال", linkedin: "لينكدإن", github: "GitHub",
     rights: "جميع الحقوق محفوظة.", built: "صُمّم وبُني للنشر على GitHub Pages",
     langBtn: "EN", langLabel: "Switch to English", theme: "تبديل المظهر", menu: "القائمة", top: "العودة للأعلى",
