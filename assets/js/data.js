@@ -127,6 +127,8 @@ const PROJECTS = [
     },
     tags: ["Cisco Packet Tracer", "VLAN", "Redundancy", "VoIP", "Wireless", "IoT", "Servers", "Firewall", "SSH"],
     diagram: "hospital",
+    // لقطة المخطط: w = عرض الصورة الأصلية، crop = [x, y, العرض, الارتفاع] للجزء المعروض
+    shot: { src: "assets/projects/graduation/image.png", w: 2820, crop: [829, 180, 1114, 956] },
     link: "", repo: "",
     files: [
       { name: { en: "Research report (PDF)", ar: "بحث المشروع (PDF - إنجليزي)" }, href: "assets/projects/graduation/graduation-research-en.pdf" },
@@ -262,7 +264,7 @@ const UI = {
     stats: [["CCNA", "Cisco certified"], ["SCE", "Licensed engineer"], ["2", "Professional roles"], ["B.Eng", "Network Systems Eng."]],
     aboutT: "About me", skillsT: "Skills & expertise", toolsT: "Tools & technologies", langsT: "Languages",
     experienceT: "Experience", achievements: "Key achievements", duties: "Core responsibilities",
-    projectsT: "Projects", viewProject: "View project", viewRepo: "Source code",
+    projectsT: "Projects", zoom: "Network topology in Cisco Packet Tracer — click to enlarge", viewProject: "View project", viewRepo: "Source code",
     certsT: "Certifications & licenses", verify: "Verify",
     educationT: "Education",
     contactT: "Let's build reliable networks together",
@@ -283,7 +285,7 @@ const UI = {
     stats: [["CCNA", "شهادة Cisco"], ["SCE", "مهندس مرخّص"], ["2", "خبرات مهنية"], ["بكالوريوس", "هندسة نظم الشبكات"]],
     aboutT: "نبذة عني", skillsT: "المهارات والخبرات", toolsT: "الأدوات والتقنيات", langsT: "اللغات",
     experienceT: "الخبرة العملية", achievements: "الإنجازات الرئيسية", duties: "المسؤوليات الأساسية",
-    projectsT: "المشاريع", viewProject: "عرض المشروع", viewRepo: "الشيفرة المصدرية",
+    projectsT: "المشاريع", zoom: "مخطط الشبكة في Cisco Packet Tracer — اضغط للتكبير", viewProject: "عرض المشروع", viewRepo: "الشيفرة المصدرية",
     certsT: "الشهادات والتراخيص", verify: "تحقق",
     educationT: "التعليم",
     contactT: "لنبنِ معًا شبكات موثوقة",
