@@ -7,7 +7,7 @@
 const SITE = {
   url: "https://muidh-alhamamah.github.io/",
   email: "fahi.058153@gmail.com",
-  photo: "assets/img/image.jpg", // الصورة الشخصية (اتركها "" لإظهار الحرف الأول)
+  photo: "", // الصورة الشخصية (اتركها "" لإظهار الحرف الأول)
   phone: "+966 581 534 742", // اتركه "" لإخفائه
   links: {
     linkedin: "https://www.linkedin.com/in/muidh-alhamamah",
@@ -23,9 +23,10 @@ const SITE = {
 const PROFILE = {
   name: { en: "Muidh Salem Al Hamamah", ar: "معيض سالم ال حمامه" },
   short: { en: "Muidh Al Hamamah", ar: "معيض ال حمامه" },
+  role: { en: "Network Engineer", ar: "مهندس شبكات" },
   roles: {
-    en: ["Network Engineer", "Infrastructure Engineer", "Network Security", "IT Support Specialist"],
-    ar: ["مهندس شبكات", "مهندس بنية تحتية", "أمن الشبكات", "أخصائي دعم فني"],
+    en: ["Network Engineering", "IT Infrastructure Management", "Network Security", "Technical Support"],
+    ar: ["هندسة الشبكات", "إدارة البنية التحتية", "أمن الشبكات", "الدعم الفني"],
   },
   title: {
     en: "Network Engineering · Digital Infrastructure · Network Security · Technical Support",
@@ -40,11 +41,11 @@ const PROFILE = {
   about: {
     en: [
       "I contribute to designing and configuring network devices and improving connectivity stability through effective security solutions. I enhance infrastructure efficiency by analyzing data traffic, identifying bottlenecks and optimizing overall network performance.",
-      "My day-to-day toolkit includes PRTG for monitoring and Wireshark for packet and traffic analysis — tracking bandwidth, latency, packet loss, CPU/memory utilization and interface status. My goal: grow as a Network Engineer and move steadily toward cybersecurity.",
+      "I rely on industry-standard tools such as PRTG for continuous monitoring and Wireshark for packet and traffic analysis, closely tracking bandwidth, latency, packet loss, resource utilization and interface status to detect issues early and resolve them before they impact operations. I combine network infrastructure expertise with information-security practices to deliver stable, secure and scalable technical environments.",
     ],
     ar: [
       "أساهم في تصميم وتهيئة أجهزة الشبكات وتحسين استقرار الاتصال عبر تطبيق حلول فعّالة في أمن المعلومات، وأعزز كفاءة البنية التحتية من خلال تحليل حركة البيانات واكتشاف الاختناقات وتحسين الأداء العام للشبكات.",
-      "أستخدم في عملي PRTG للمراقبة وWireshark لتحليل الحزم وحركة البيانات، مع متابعة عرض النطاق والتأخير وفقدان الحزم واستخدام المعالج والذاكرة وحالة الواجهات. هدفي النمو كمهندس شبكات والتوجّه بثبات نحو الأمن السيبراني.",
+      "أعتمد في عملي على أدوات احترافية مثل PRTG للمراقبة المستمرة وWireshark لتحليل الحزم وحركة البيانات، مع متابعة دقيقة لمؤشرات الأداء من عرض النطاق وزمن الاستجابة وفقدان الحزم إلى استهلاك الموارد وحالة الواجهات، بما يضمن اكتشاف المشكلات مبكرًا ومعالجتها قبل أن تؤثر على سير العمل. وأجمع بين الخبرة في البنية التحتية للشبكات وتطبيق ممارسات أمن المعلومات لتقديم بيئات تقنية مستقرة وآمنة وقابلة للتوسع.",
     ],
   },
   focus: [
@@ -258,7 +259,7 @@ const UI = {
     docDesc: "Portfolio of Muidh Salem Al Hamamah, a CCNA-certified network engineer licensed by the Saudi Council of Engineers, specializing in network infrastructure, network security and IT support. Open to work.",
     nav: { about: "About", skills: "Skills", experience: "Experience", projects: "Projects", certs: "Certifications", education: "Education", contact: "Contact" },
     hello: "Hello, I'm",
-    iam: "I work as",
+    iam: "Specialized in",
     cv: "Download CV", cvOther: "السيرة بالعربية", cvEn: "English CV", cvAr: "Arabic CV",
     contactBtn: "Let's talk",
     stats: [["CCNA", "Cisco certified"], ["SCE", "Licensed engineer"], ["2", "Professional roles"], ["B.Eng", "Network Systems Eng."]],
@@ -279,7 +280,7 @@ const UI = {
     docDesc: "الملف المهني لمعيض سالم ال حمامه، مهندس شبكات حاصل على CCNA ومرخّص من الهيئة السعودية للمهندسين، متخصص في البنية التحتية للشبكات وأمن الشبكات والدعم الفني. متاح للعمل.",
     nav: { about: "نبذة", skills: "المهارات", experience: "الخبرة", projects: "المشاريع", certs: "الشهادات", education: "التعليم", contact: "التواصل" },
     hello: "مرحبًا، أنا",
-    iam: "أعمل في مجال",
+    iam: "متخصص في",
     cv: "تحميل السيرة الذاتية", cvOther: "English CV", cvEn: "السيرة بالإنجليزية", cvAr: "السيرة بالعربية",
     contactBtn: "تواصل معي",
     stats: [["CCNA", "شهادة Cisco"], ["SCE", "مهندس مرخّص"], ["2", "خبرات مهنية"], ["بكالوريوس", "هندسة نظم الشبكات"]],
