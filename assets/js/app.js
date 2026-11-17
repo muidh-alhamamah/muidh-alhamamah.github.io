@@ -83,7 +83,7 @@
     var c0 = CERTS.filter(function (c) { return c.featured; }), ex = EXPERIENCE[0], ed = EDUCATION[0];
     var row = function (icon, k, v, s) { return '<li>' + ic(icon, "big") + '<div><small>' + k + '</small><b>' + v + '</b>' + (s ? '<span>' + s + '</span>' : '') + '</div></li>'; };
     $("#id-card").innerHTML =
-      '<div class="idc-top"><div class="avatar">' + (SITE.photo ? '<img src="' + SITE.photo + '" alt="' + t(PROFILE.name) + '" width="88" height="88">' : '<span>' + t(PROFILE.name).charAt(0) + '</span>') + '</div><div class="idc-n"><b>' + t(PROFILE.name) + '</b><span>' + t(PROFILE.roles)[0] + '</span></div>' +
+      '<div class="idc-top"><div class="avatar">' + (SITE.photo ? '<img src="' + SITE.photo + '" alt="' + t(PROFILE.name) + '" width="88" height="88">' : '<span>' + t(PROFILE.name).charAt(0) + '</span>') + '</div><div class="idc-n"><b>' + t(PROFILE.name) + '</b><span>' + t(PROFILE.role) + '</span></div>' +
       '<span class="ver" title="' + u.card.verified + '">' + ic("check", "sm") + '</span></div>' +
       '<p class="idc-k">' + u.card.t + '</p><ul class="creds">' +
       c0.map(function (c) { return row(c.icon, t(c.issuer), t(c.name).replace(/ \(CCNA\)$/, "").replace("Cisco Certified Network Associate", "CCNA"), t(c.date)); }).join("") +
