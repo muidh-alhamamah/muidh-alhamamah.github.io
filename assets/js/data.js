@@ -110,6 +110,27 @@ const LANGS = [
 // أضف مشروعًا بنسخ كتلة { ... }. link/repo اختياريان.
 const PROJECTS = [
   {
+    kind: { en: "Personal Project · Full-Stack Platform", ar: "مشروع شخصي · منصة متكاملة" },
+    title: { en: "ZYRTHEN — Infrastructure & Network Operations Platform", ar: "ZYRTHEN — منصة عمليات البنية التحتية والشبكات" },
+    points: {
+      en: [
+        "Full-stack platform that centralizes branch and network-device inventory and ICMP-based reachability monitoring in one dashboard, built as a modular monolith (FastAPI, React, PostgreSQL).",
+        "A dedicated monitoring worker tracks each device's reachability, latency and packet loss, keeps a monitoring history, and shows it separately from the device's administrative status. It is validated with demo data, with live ICMP checks tested against a loopback target.",
+        "Multi-tenant data isolation enforced in the database with PostgreSQL Row-Level Security, plus role-based access control (RBAC), secure session authentication and audit logging.",
+        "Docker-based deployment (Docker Compose, Nginx) with automated CI checks on GitHub Actions: linting, type checking and an automated test suite.",
+      ],
+      ar: [
+        "منصة متكاملة تجمع إدارة الفروع وجرد أجهزة الشبكة ومراقبة الوصول عبر ICMP في لوحة واحدة، مبنية بمعمارية Modular Monolith باستخدام FastAPI وReact وPostgreSQL.",
+        "عامل مراقبة مستقل يتابع وصول كل جهاز وزمن الاستجابة وفقدان الحزم، ويحفظ سجل المراقبة، ويعرضها منفصلة عن الحالة الإدارية للجهاز. تم التحقق منها ببيانات تجريبية، مع اختبار فحص ICMP الفعلي على عنوان Loopback.",
+        "عزل بيانات المستأجرين على مستوى قاعدة البيانات عبر PostgreSQL Row-Level Security، مع صلاحيات قائمة على الأدوار (RBAC) ومصادقة جلسات آمنة وسجل تدقيق.",
+        "نشر عبر الحاويات باستخدام Docker Compose وNginx، مع فحوص تلقائية عبر GitHub Actions تشمل التدقيق البرمجي وفحص الأنواع ومجموعة اختبارات تلقائية.",
+      ],
+    },
+    tags: ["Python", "FastAPI", "React", "TypeScript", "PostgreSQL", "SQLAlchemy", "Alembic", "Docker", "Nginx", "GitHub Actions"],
+    diagram: "zyrthen",
+    link: "", repo: "", // private repository for now
+  },
+  {
     kind: { en: "Graduation Project · Team of 4", ar: "مشروع التخرج · فريق من 4 متدربين" },
     title: { en: "Establish & Secure the Network Infrastructure of King Khalid Hospital, Najran", ar: "إنشاء وتأمين البنية التحتية لشبكة مستشفى الملك خالد بنجران" },
     points: {
