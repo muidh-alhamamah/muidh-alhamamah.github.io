@@ -131,6 +131,27 @@ const PROJECTS = [
     link: "", repo: "", // private repository for now
   },
   {
+    kind: { en: "Personal Project · Command-Line Tool", ar: "مشروع شخصي · أداة سطر أوامر" },
+    title: { en: "NetProbe — Network Diagnostic CLI", ar: "NetProbe — أداة سطر أوامر لتشخيص الشبكات" },
+    points: {
+      en: [
+        "Standalone command-line tool for network troubleshooting, written in Python using only the standard library, and supporting Windows and Linux.",
+        "Runs Ping, Traceroute, DNS lookup, TCP port connectivity and network-interface checks, and turns raw tool output into structured results: packet loss and latency, route hops, resolved addresses, and each interface's status, MAC and IPv4/IPv6 addresses.",
+        "Diagnostic reports combine several checks in one run, as readable text or JSON, with a pass/fail summary; one failing check never stops the others.",
+        "Calls the operating system's own tools safely (no shell, validated input, clear exit codes) and is covered by an automated test suite built on saved Windows and Linux tool output.",
+      ],
+      ar: [
+        "أداة سطر أوامر مستقلة لتشخيص مشكلات الشبكات، مكتوبة بلغة Python باستخدام المكتبة القياسية فقط، وتدعم Windows وLinux.",
+        "تنفّذ فحوص Ping وTraceroute واستعلام DNS واتصال منافذ TCP ومعلومات واجهات الشبكة، وتحوّل مخرجات أدوات النظام إلى نتائج منظمة: فقدان الحزم وزمن الاستجابة، وقفزات المسار، والعناوين المحلولة، وحالة كل واجهة وعنوان MAC وعناوين IPv4/IPv6.",
+        "تقارير تشخيصية تجمع عدة فحوص في تشغيل واحد، بصيغة نصية مقروءة أو JSON، مع ملخص للفحوص الناجحة والفاشلة؛ وفشل أحد الفحوص لا يوقف بقيتها.",
+        "تستدعي أدوات نظام التشغيل بطريقة آمنة (دون Shell، مع التحقق من المدخلات ورموز خروج واضحة)، ومغطاة بمجموعة اختبارات تلقائية مبنية على مخرجات محفوظة من Windows وLinux.",
+      ],
+    },
+    tags: ["Python", "CLI", "Windows", "Linux", "ICMP", "Traceroute", "DNS", "TCP", "JSON", "unittest"],
+    diagram: "netprobe",
+    link: "", repo: "", // repository not published yet
+  },
+  {
     kind: { en: "Graduation Project · Team of 4", ar: "مشروع التخرج · فريق من 4 متدربين" },
     title: { en: "Establish & Secure the Network Infrastructure of King Khalid Hospital, Najran", ar: "إنشاء وتأمين البنية التحتية لشبكة مستشفى الملك خالد بنجران" },
     points: {
