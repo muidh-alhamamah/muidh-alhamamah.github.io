@@ -152,6 +152,27 @@ const PROJECTS = [
     link: "", repo: "https://github.com/muidh-alhamamah/NetProbe",
   },
   {
+    kind: { en: "Personal Project · Security Audit Tool", ar: "مشروع شخصي · أداة تدقيق أمني" },
+    title: { en: "NetConfig Auditor — Cisco Configuration Security Audit", ar: "NetConfig Auditor — تدقيق أمان إعدادات أجهزة Cisco" },
+    points: {
+      en: [
+        "Standalone Python command-line tool that audits saved Cisco IOS and IOS XE configuration files offline and read-only, without connecting to any device.",
+        "23 audit rules detect insecure management access (Telnet, HTTP, SSH version 1, unrestricted VTY lines), cleartext and weakly hashed passwords, default and read-write SNMP communities, overly permissive ACLs, and common mistakes such as duplicate IP addresses and references to undefined ACLs.",
+        "Each finding reports the rule, severity, line number, reason and recommended fix, as a readable text report or JSON with clear exit codes for scripting; passwords, hashes and community strings are always masked.",
+        "Modular design that keeps the parser, the rule set and reporting separate so new rules are easy to add, covered by an automated test suite built on fictitious configurations and verified on Windows and Linux.",
+      ],
+      ar: [
+        "أداة سطر أوامر مستقلة بلغة Python تدقق ملفات إعدادات أجهزة Cisco IOS وIOS XE المحفوظة، دون اتصال بالشبكة وبوضع القراءة فقط، ولا تتصل بأي جهاز.",
+        "23 قاعدة تدقيق تكتشف الوصول الإداري غير الآمن (Telnet وHTTP وSSH الإصدار الأول وخطوط VTY غير المقيدة)، وكلمات المرور النصية أو ضعيفة التشفير، ومجتمعات SNMP الافتراضية أو ذات صلاحية الكتابة، وقوائم ACL المتساهلة، وأخطاء شائعة مثل تكرار عناوين IP والإشارة إلى قوائم ACL غير معرّفة.",
+        "كل نتيجة تتضمن القاعدة ومستوى الخطورة ورقم السطر والسبب والتوصية بالإصلاح، في تقرير نصي مقروء أو بصيغة JSON مع رموز خروج واضحة للاستخدام في السكربتات؛ وتُخفى كلمات المرور والتجزئات ونصوص SNMP دائمًا.",
+        "تصميم معياري يفصل المحلل عن قواعد التدقيق وعن التقارير لتسهيل إضافة قواعد جديدة، مع مجموعة اختبارات تلقائية مبنية على إعدادات وهمية ومُتحقق منها على Windows وLinux.",
+      ],
+    },
+    tags: ["Python", "CLI", "Cisco IOS", "IOS XE", "Network Security", "Configuration Audit", "JSON", "unittest"],
+    diagram: "ncaudit",
+    link: "", repo: "", // private repository for now
+  },
+  {
     kind: { en: "Graduation Project · Team of 4", ar: "مشروع التخرج · فريق من 4 متدربين" },
     title: { en: "Establish & Secure the Network Infrastructure of King Khalid Hospital, Najran", ar: "إنشاء وتأمين البنية التحتية لشبكة مستشفى الملك خالد بنجران" },
     points: {
