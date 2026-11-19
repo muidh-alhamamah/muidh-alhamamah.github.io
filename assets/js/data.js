@@ -149,7 +149,7 @@ const PROJECTS = [
     },
     tags: ["Python", "CLI", "Windows", "Linux", "ICMP", "Traceroute", "DNS", "TCP", "JSON", "unittest"],
     diagram: "netprobe",
-    link: "", repo: "", // repository not published yet
+    link: "", repo: "https://github.com/muidh-alhamamah/NetProbe",
   },
   {
     kind: { en: "Graduation Project · Team of 4", ar: "مشروع التخرج · فريق من 4 متدربين" },
