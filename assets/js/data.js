@@ -170,7 +170,7 @@ const PROJECTS = [
     },
     tags: ["Python", "CLI", "Cisco IOS", "IOS XE", "Network Security", "Configuration Audit", "JSON", "unittest"],
     diagram: "ncaudit",
-    link: "", repo: "", // private repository for now
+    link: "", repo: "https://github.com/muidh-alhamamah/NetConfigAuditor",
   },
   {
     kind: { en: "Graduation Project · Team of 4", ar: "مشروع التخرج · فريق من 4 متدربين" },
