@@ -111,24 +111,38 @@ const LANGS = [
 const PROJECTS = [
   {
     kind: { en: "Personal Project · Full-Stack Platform", ar: "مشروع شخصي · منصة متكاملة" },
-    title: { en: "ZYRTHEN — Infrastructure & Network Operations Platform", ar: "ZYRTHEN — منصة عمليات البنية التحتية والشبكات" },
+    title: { en: "ZYRTHEN — Multi-Tenant Network Monitoring & Incident Platform", ar: "ZYRTHEN — منصة متعددة المؤسسات لمراقبة الشبكات وإدارة الحوادث" },
     points: {
       en: [
-        "Full-stack platform that centralizes branch and network-device inventory and ICMP-based reachability monitoring in one dashboard, built as a modular monolith (FastAPI, React, PostgreSQL).",
-        "A dedicated monitoring worker tracks each device's reachability, latency and packet loss, keeps a monitoring history, and shows it separately from the device's administrative status. It is validated with demo data, with live ICMP checks tested against a loopback target.",
-        "Multi-tenant data isolation enforced in the database with PostgreSQL Row-Level Security, plus role-based access control (RBAC), secure session authentication and audit logging.",
-        "Docker-based deployment (Docker Compose, Nginx) with automated CI checks on GitHub Actions: linting, type checking and an automated test suite.",
+        "Replaces spreadsheet inventories and manual ping checks: each organization gets an access-controlled inventory of its branches and network devices, continuous ICMP reachability monitoring and an incident workflow. Built as a modular monolith with FastAPI, React and PostgreSQL.",
+        "A separate monitoring worker pings devices concurrently (no shell) and stores latency, packet loss and history. An incident opens only after 3 consecutive failed checks and resolves itself after 2 successful ones, so a single lost packet never raises an alarm; engineers acknowledge incidents and close them with a resolution note.",
+        "Dashboard with uptime, average latency and loss per device and mean time to resolve (MTTR) over 24 hours or 7 days, with CSV export, plus an append-only audit log of every security-relevant action with the real client IP.",
+        "Tenant isolation enforced inside PostgreSQL with Row-Level Security (enabled and forced on every tenant table) and least-privilege database roles; hashed opaque sessions, CSRF protection, role-based permissions on every API route, login lockout and rate limiting.",
+        "One-command Docker Compose demo (Nginx, API, worker, PostgreSQL), 250+ automated tests against a real PostgreSQL database and GitHub Actions CI. Demo devices use reserved documentation IP addresses (RFC 5737), not real equipment.",
       ],
       ar: [
-        "منصة متكاملة تجمع إدارة الفروع وجرد أجهزة الشبكة ومراقبة الوصول عبر ICMP في لوحة واحدة، مبنية بمعمارية Modular Monolith باستخدام FastAPI وReact وPostgreSQL.",
-        "عامل مراقبة مستقل يتابع وصول كل جهاز وزمن الاستجابة وفقدان الحزم، ويحفظ سجل المراقبة، ويعرضها منفصلة عن الحالة الإدارية للجهاز. تم التحقق منها ببيانات تجريبية، مع اختبار فحص ICMP الفعلي على عنوان Loopback.",
-        "عزل بيانات المستأجرين على مستوى قاعدة البيانات عبر PostgreSQL Row-Level Security، مع صلاحيات قائمة على الأدوار (RBAC) ومصادقة جلسات آمنة وسجل تدقيق.",
-        "نشر عبر الحاويات باستخدام Docker Compose وNginx، مع فحوص تلقائية عبر GitHub Actions تشمل التدقيق البرمجي وفحص الأنواع ومجموعة اختبارات تلقائية.",
+        "تحل محل جداول الجرد اليدوية وفحوص ping اليدوية: لكل مؤسسة مخزون محمي بالصلاحيات لفروعها وأجهزة الشبكة، ومراقبة مستمرة للوصول عبر ICMP، وسير عمل لإدارة الحوادث. مبنية بمعمارية Modular Monolith باستخدام FastAPI وReact وPostgreSQL.",
+        "عامل مراقبة مستقل يفحص الأجهزة بالتوازي (دون Shell) ويحفظ زمن الاستجابة وفقدان الحزم والسجل التاريخي. لا يُفتح الحادث إلا بعد 3 فحوص فاشلة متتالية، ويُغلق تلقائيًا بعد فحصين ناجحين، فلا يطلق فقدان حزمة واحدة إنذارًا؛ ويقرّ المهندسون بالحادث ويغلقونه مع ملاحظة الحل.",
+        "لوحة متابعة تعرض نسبة التوفر (Uptime) ومتوسط زمن الاستجابة وفقدان الحزم لكل جهاز، ومتوسط زمن الحل (MTTR) خلال 24 ساعة أو 7 أيام مع تصدير CSV، إضافة إلى سجل تدقيق غير قابل للتعديل لكل إجراء أمني مع عنوان IP الحقيقي للمستخدم.",
+        "عزل بيانات المؤسسات داخل PostgreSQL عبر Row-Level Security (مفعّل ومفروض على كل جداول المؤسسات) مع أدوار قاعدة بيانات بأقل الصلاحيات؛ وجلسات مشفّرة التجزئة، وحماية CSRF، وصلاحيات قائمة على الأدوار لكل مسار API، وقفل الحساب وتحديد معدل محاولات الدخول.",
+        "تشغيل تجريبي بأمر واحد عبر Docker Compose (Nginx وAPI وعامل المراقبة وPostgreSQL)، وأكثر من 250 اختبارًا تلقائيًا على قاعدة PostgreSQL حقيقية، وفحوص مستمرة عبر GitHub Actions. أجهزة العرض التجريبي تستخدم عناوين IP مخصصة للتوثيق (RFC 5737) وليست أجهزة حقيقية.",
       ],
     },
-    tags: ["Python", "FastAPI", "React", "TypeScript", "PostgreSQL", "SQLAlchemy", "Alembic", "Docker", "Nginx", "GitHub Actions"],
+    tags: ["Python", "FastAPI", "React", "TypeScript", "PostgreSQL", "Row-Level Security", "SQLAlchemy", "Alembic", "ICMP", "Docker", "Nginx", "GitHub Actions"],
     diagram: "zyrthen",
-    link: "", repo: "", // private repository for now
+    archCap: { en: "System architecture", ar: "معمارية النظام" },
+    // Screenshots are 800×500 (audit 800×506): crop = [x, y, width, height]
+    shot: { src: "assets/projects/zyrthen/dashboard.jpg", w: 800, crop: [0, 0, 800, 500], cap: { en: "Dashboard — click to enlarge", ar: "لوحة المتابعة — اضغط للتكبير" } },
+    gallery: [
+      { src: "assets/projects/zyrthen/incidents.jpg", w: 800, crop: [0, 0, 800, 500], cap: { en: "Incidents", ar: "الحوادث" } },
+      { src: "assets/projects/zyrthen/devices.jpg", w: 800, crop: [0, 0, 800, 500], cap: { en: "Devices", ar: "الأجهزة" } },
+      { src: "assets/projects/zyrthen/device-monitoring.jpg", w: 800, crop: [0, 0, 800, 500], cap: { en: "ICMP history", ar: "سجل فحوص ICMP" } },
+      { src: "assets/projects/zyrthen/audit.jpg", w: 800, crop: [0, 0, 800, 500], cap: { en: "Audit log", ar: "سجل التدقيق" } },
+    ],
+    files: [
+      { name: { en: "Project profile (PDF)", ar: "ملف تعريف المشروع (PDF - إنجليزي)" }, href: "assets/projects/zyrthen/ZYRTHEN_Project_Profile.pdf" },
+    ],
+    link: "", repo: "", privateRepo: true, // repository is private: shown as a label, not a link
   },
   {
     kind: { en: "Personal Project · Command-Line Tool", ar: "مشروع شخصي · أداة سطر أوامر" },
@@ -328,7 +342,7 @@ const UI = {
     stats: [["CCNA", "Cisco certified"], ["SCE", "Licensed engineer"], ["2", "Professional roles"], ["B.Eng", "Network Systems Eng."]],
     aboutT: "About me", skillsT: "Skills & expertise", toolsT: "Tools & technologies", langsT: "Languages",
     experienceT: "Experience", achievements: "Key achievements", duties: "Core responsibilities",
-    projectsT: "Projects", arch: "Logical network architecture", zoom: "Network topology in Cisco Packet Tracer — click to enlarge", viewProject: "View project", viewRepo: "Source code",
+    projectsT: "Projects", arch: "Logical network architecture", zoom: "Network topology in Cisco Packet Tracer — click to enlarge", viewProject: "View project", viewRepo: "Source code", privateRepo: "Private repository",
     certsT: "Certifications & licenses", verify: "Verify",
     educationT: "Education",
     contactT: "Let's build reliable networks together",
@@ -349,7 +363,7 @@ const UI = {
     stats: [["CCNA", "شهادة Cisco"], ["SCE", "مهندس مرخّص"], ["2", "خبرات مهنية"], ["بكالوريوس", "هندسة نظم الشبكات"]],
     aboutT: "نبذة عني", skillsT: "المهارات والخبرات", toolsT: "الأدوات والتقنيات", langsT: "اللغات",
     experienceT: "الخبرة العملية", achievements: "الإنجازات الرئيسية", duties: "المسؤوليات الأساسية",
-    projectsT: "المشاريع", arch: "البنية المنطقية للشبكة", zoom: "مخطط الشبكة في Cisco Packet Tracer — اضغط للتكبير", viewProject: "عرض المشروع", viewRepo: "الشيفرة المصدرية",
+    projectsT: "المشاريع", arch: "البنية المنطقية للشبكة", zoom: "مخطط الشبكة في Cisco Packet Tracer — اضغط للتكبير", viewProject: "عرض المشروع", viewRepo: "الشيفرة المصدرية", privateRepo: "مستودع خاص",
     certsT: "الشهادات والتراخيص", verify: "تحقق",
     educationT: "التعليم",
     contactT: "لنبنِ معًا شبكات موثوقة",

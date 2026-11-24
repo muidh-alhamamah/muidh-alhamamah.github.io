@@ -316,3 +316,8 @@ details li::before{content:"";position:absolute;inset-inline-start:0;top:.75em;w
 @media (min-width:901px){.project.has-shot .viz{grid-template-columns:minmax(240px,.62fr) 1.38fr;padding:1.6rem}}
 .arch .diag{display:block;max-width:360px;margin:0 auto}
 .crop img{filter:contrast(1.14) saturate(1.2)}
+/* project screenshot gallery (thumbnails open in the lightbox) */
+.pgallery{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-top:1.2rem}
+.pgallery .shot-cap{margin-top:.4rem;font-size:.8rem}
+@media (max-width:560px){.pgallery{grid-template-columns:repeat(2,1fr)}}
+.plinks .private{display:inline-flex;align-items:center;gap:.35rem;font-weight:600;font-size:.92rem;color:var(--muted)}

@@ -128,10 +128,10 @@
     $("#projects-t").innerHTML = head("04", u.projectsT);
     $("#projects-grid").innerHTML = PROJECTS.map(function (p) {
       var links = (p.link ? '<a href="' + esc(p.link) + '" target="_blank" rel="noopener">' + u.viewProject + ic("ext", "sm") + "</a>" : "") +
-        (p.repo ? '<a href="' + esc(p.repo) + '" target="_blank" rel="noopener">' + u.viewRepo + ic("ext", "sm") + "</a>" : "");
-      return '<article class="card project rv glow' + (p.shot ? ' has-shot' : '') + '"><div class="viz">' + (p.shot ? '<div class="arch">' + (DIAG[p.diagram] || DIAG.lan) + '<span class="shot-cap">' + u.arch + '</span></div>' + shot(p, u) : (DIAG[p.diagram] || DIAG.lan)) + '</div><div class="pbody"><p class="kind">' + t(p.kind) + "</p><h3>" + t(p.title) + "</h3><ul>" +
+        (p.repo ? '<a href="' + esc(p.repo) + '" target="_blank" rel="noopener">' + u.viewRepo + ic("ext", "sm") + "</a>" : p.privateRepo ? '<span class="private">' + ic("github", "sm") + u.privateRepo + "</span>" : "");
+      return '<article class="card project rv glow' + (p.shot ? ' has-shot' : '') + '"><div class="viz">' + (p.shot ? '<div class="arch">' + (DIAG[p.diagram] || DIAG.lan) + '<span class="shot-cap">' + (p.archCap ? t(p.archCap) : u.arch) + '</span></div>' + shot(p, u) : (DIAG[p.diagram] || DIAG.lan)) + '</div><div class="pbody"><p class="kind">' + t(p.kind) + "</p><h3>" + t(p.title) + "</h3><ul>" +
         p.points[lang].map(function (x) { return "<li>" + x + "</li>"; }).join("") + '</ul><div class="tags">' +
-        p.tags.map(function (g) { return "<span>" + g + "</span>"; }).join("") + "</div>" + (p.files && p.files.length ? '<div class="pfiles">' + p.files.map(function (f) { return '<a class="pfile" href="' + esc(f.href) + '"' + (/\.pdf$/i.test(f.href) ? ' target="_blank" rel="noopener"' : ' download') + '>' + ic("file") + t(f.name) + ic("ext", "sm") + "</a>"; }).join("") + "</div>" : "") + (links ? '<div class="plinks">' + links + "</div>" : "") + "</div></article>";
+        p.tags.map(function (g) { return "<span>" + g + "</span>"; }).join("") + "</div>" + gallery(p) + (p.files && p.files.length ? '<div class="pfiles">' + p.files.map(function (f) { return '<a class="pfile" href="' + esc(f.href) + '"' + (/\.pdf$/i.test(f.href) ? ' target="_blank" rel="noopener"' : ' download') + '>' + ic("file") + t(f.name) + ic("ext", "sm") + "</a>"; }).join("") + "</div>" : "") + (links ? '<div class="plinks">' + links + "</div>" : "") + "</div></article>";
     }).join("");
 
     // certs
@@ -166,7 +166,9 @@
   }
 
   function cropHTML(s, alt) { var c = s.crop; return '<span class="crop" style="aspect-ratio:' + c[2] + '/' + c[3] + '"><img src="' + esc(s.src) + '" alt="' + esc(alt) + '" loading="lazy" style="width:' + (s.w / c[2] * 100) + '%;margin-left:' + (-c[0] / c[2] * 100) + '%;margin-top:' + (-c[1] / c[2] * 100) + '%"></span>'; }
-  function shot(p, u) { return '<button class="shot" type="button" data-shot="' + PROJECTS.indexOf(p) + '" aria-label="' + esc(u.zoom) + '">' + cropHTML(p.shot, t(p.title)) + '<span class="shot-cap">' + ic("ext", "sm") + u.zoom + '</span></button>'; }
+  function shot(p, u) { var cap = p.shot.cap ? t(p.shot.cap) : u.zoom; return '<button class="shot" type="button" data-shot="' + PROJECTS.indexOf(p) + '" aria-label="' + esc(cap) + '">' + cropHTML(p.shot, t(p.title)) + '<span class="shot-cap">' + ic("ext", "sm") + cap + '</span></button>'; }
+  // Extra screenshots: data-shot="<project>:<index>" opens them in the same lightbox.
+  function gallery(p) { return p.gallery && p.gallery.length ? '<div class="pgallery">' + p.gallery.map(function (g, i) { return '<button class="shot" type="button" data-shot="' + PROJECTS.indexOf(p) + ':' + i + '" aria-label="' + esc(t(g.cap)) + '">' + cropHTML(g, t(g.cap)) + '<span class="shot-cap">' + t(g.cap) + '</span></button>'; }).join("") + "</div>" : ""; }
   function head(n, txt) { return '<span class="num">' + n + "</span>" + txt; }
   function socialLinks(cls) {
     var h = "";
@@ -282,7 +284,7 @@
     document.addEventListener("click", function (e) {
       var lb = $("#lightbox"), b = e.target.closest && e.target.closest(".shot");
       if (!lb) { lb = document.createElement("div"); lb.id = "lightbox"; lb.className = "lightbox"; document.body.appendChild(lb); }
-      if (b) { var p = PROJECTS[+b.getAttribute("data-shot")], c = p.shot.crop; lb.innerHTML = '<div class="lb-in" style="width:min(96vw,' + (92 * c[2] / c[3]) + 'vh)">' + cropHTML(p.shot, t(p.title)) + '</div>'; lb.classList.add("open"); }
+      if (b) { var k = b.getAttribute("data-shot").split(":"), p = PROJECTS[+k[0]], s = k.length > 1 ? p.gallery[+k[1]] : p.shot, c = s.crop; lb.innerHTML = '<div class="lb-in" style="width:min(96vw,' + (92 * c[2] / c[3]) + 'vh)">' + cropHTML(s, s.cap ? t(s.cap) : t(p.title)) + '</div>'; lb.classList.add("open"); }
       else lb.classList.remove("open");
     });
     document.addEventListener("keydown", function (e) { var lb = $("#lightbox"); if (e.key === "Escape" && lb) lb.classList.remove("open"); });
